@@ -23,8 +23,8 @@ USE bronze;
 -- 1. CRM Customer Information Table
 -- Stores basic customer data like ID, name, marital status, and gender.
 -------------------------------------------------------------
-DROP TABLE IF EXISTS crm_cust_info;
-CREATE TABLE crm_cust_info (
+DROP TABLE IF EXISTS bronze.crm_cust_info;
+CREATE TABLE bronze.crm_cust_info (
     cst_id INT,
     cst_key VARCHAR(50),
     cst_firstname VARCHAR(50),
@@ -38,8 +38,8 @@ CREATE TABLE crm_cust_info (
 -- 2. CRM Product Information Table
 -- Contains product-related details such as cost, category, and active dates.
 -------------------------------------------------------------
-DROP TABLE IF EXISTS crm_prd_info;
-CREATE TABLE crm_prd_info (
+DROP TABLE IF EXISTS bronze.crm_prd_info;
+CREATE TABLE bronze.crm_prd_info (
     prd_id INT,
     prd_key VARCHAR(50),
     prd_nm VARCHAR(50),
@@ -53,8 +53,8 @@ CREATE TABLE crm_prd_info (
 -- 3. CRM Sales Details Table
 -- Records transactional sales data including order date, product, and amount.
 -------------------------------------------------------------
-DROP TABLE IF EXISTS crm_sales_details;
-CREATE TABLE crm_sales_details (
+DROP TABLE IF EXISTS bronze.crm_sales_details;
+CREATE TABLE bronze.crm_sales_details (
     sls_ord_num VARCHAR(50),
     sls_prd_key VARCHAR(50),
     sls_cust_id INT,
@@ -70,8 +70,8 @@ CREATE TABLE crm_sales_details (
 -- 4. ERP Customer Details Table (ERP_CUST_AZ12)
 -- Holds ERP system customer information like birth date and gender.
 -------------------------------------------------------------
-DROP TABLE IF EXISTS erp_cust_az12;
-CREATE TABLE erp_cust_az12 (
+DROP TABLE IF EXISTS bronze.erp_cust_az12;
+CREATE TABLE bronze.erp_cust_az12 (
     cid VARCHAR(50),
     bdate DATE,
     gen VARCHAR(50)
@@ -81,8 +81,8 @@ CREATE TABLE erp_cust_az12 (
 -- 5. ERP Location Data Table (ERP_LOC_A101)
 -- Maps customer IDs to their respective countries.
 -------------------------------------------------------------
-DROP TABLE IF EXISTS erp_loc_a101;
-CREATE TABLE erp_loc_a101 (
+DROP TABLE IF EXISTS bronze.erp_loc_a101;
+CREATE TABLE bronze.erp_loc_a101 (
     cid VARCHAR(50),
     cntry VARCHAR(50)
 );
@@ -91,8 +91,8 @@ CREATE TABLE erp_loc_a101 (
 -- 6. ERP Product Category Table (ERP_PX_CAT_G1V2)
 -- Stores product categories, subcategories, and maintenance info.
 -------------------------------------------------------------
-DROP TABLE IF EXISTS erp_px_cat_g1v2;
-CREATE TABLE erp_px_cat_g1v2 (
+DROP TABLE IF EXISTS bronze.erp_px_cat_g1v2;
+CREATE TABLE bronze.erp_px_cat_g1v2 (
     id VARCHAR(50),
     cat VARCHAR(50),
     subcat VARCHAR(50),
