@@ -35,8 +35,11 @@ USE DataWarehouse;
 
 -- (Optional) You can create tables in each layer like:
 -- USE bronze;
+USE bronze;
 -- CREATE TABLE customer_data (...);
 -- USE silver;
+USE silver;
 -- CREATE TABLE transformed_data (...);
 -- USE gold;
+USE gold;
 -- CREATE TABLE analytics_summary (...);
