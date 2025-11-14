@@ -106,10 +106,9 @@ SELECT 'fact_sales view created successfully' AS message;
    4. DATA QUALITY CHECK (DISABLED — NOT EXECUTED)
    ========================================================================================== */
 
-/*
--- This section is intentionally commented out
+SET @run_quality_checks = 0;
 -- It is provided only for users who want to manually verify gender correctness.
-
+IF @run_quality_checks = 1 THEN
 SELECT DISTINCT
     ci.cst_gndr,
     ca.gen,
@@ -120,5 +119,5 @@ SELECT DISTINCT
 FROM silver.crm_cust_info AS ci
 LEFT JOIN silver.erp_cust_az12 AS ca
     ON ci.cst_key = ca.cid;
+END IF;
 
-*/
