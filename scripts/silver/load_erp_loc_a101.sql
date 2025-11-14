@@ -69,7 +69,10 @@ SELECT 'Data successfully loaded into silver.erp_loc_a101!' AS info;
 /*
 --------------------------------------------------------------
 DQ1 — Check distinct country values BEFORE cleaning (bronze)
---------------------------------------------------------------
+-------------------------------------------------------------- */
+SET @run_quality_checks = 0;
+
+
 SELECT DISTINCT cntry AS old_cntry,
 CASE 
     WHEN UPPER(TRIM(REPLACE(REPLACE(REPLACE(REPLACE(cntry,'\r',''),'\n',''),'\t',''),' ',''))) = 'DE'
@@ -82,16 +85,25 @@ CASE
         THEN 'n/a'
     ELSE TRIM(REPLACE(REPLACE(REPLACE(REPLACE(cntry,'\r',''),'\n',''),'\t',''),' ',''))
 END AS new_cntry
-FROM bronze.erp_loc_a101;
+FROM bronze.erp_loc_a101
+WHERE @run_quality_checks = 1;
 
---------------------------------------------------------------
+/*--------------------------------------------------------------
 DQ2 — Check standardized country values in silver
---------------------------------------------------------------
-SELECT DISTINCT cntry
-FROM silver.erp_loc_a101;
+--------------------------------------------------------------*/
+SET @run_quality_checks = 0;
 
---------------------------------------------------------------
+I
+SELECT DISTINCT cntry
+FROM silver.erp_loc_a101
+WHERE @run_quality_checks = 1;
+
+/*--------------------------------------------------------------
 DQ3 — Preview full silver data
---------------------------------------------------------------
-SELECT * FROM silver.erp_loc_a101;
+--------------------------------------------------------------*/
+SET @run_quality_checks = 0;
+
+
+SELECT * FROM silver.erp_loc_a101
+WHERE @run_quality_checks = 1;
 */
